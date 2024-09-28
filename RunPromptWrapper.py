@@ -1,4 +1,4 @@
-from MenuEntry import MenuEntry
+from .MenuEntry import MenuEntry
 
 import subprocess
 
@@ -53,5 +53,4 @@ class RunPromptWrapper:
 
     # start the run prompt, and capture output
     def start(self):
-        while (True):
-            self._captureEvent(self._execMenuCmd())
+        self._captureEvent(self._execMenuCmd())
