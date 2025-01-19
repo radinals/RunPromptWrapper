@@ -1,4 +1,4 @@
-from .MenuEntry import MenuEntry
+from RunPromptWrapper.MenuEntry import MenuEntry
 
 import subprocess
 
@@ -26,8 +26,10 @@ class RunPromptWrapper:
 
     # execute the run prompt command
     def _execMenuCmd(self):
+        entries = self._generateExecStr()
+        if entries == None or entries == "": exit(1)
         return subprocess.run(self.run_prompt_cmd,
-                              input=self._generateExecStr(),
+                              input=entries,
                               text=True,
                               shell=True,
                               capture_output=True)
